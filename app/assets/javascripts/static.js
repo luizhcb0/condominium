@@ -1,5 +1,14 @@
+$level = null;
+
 $(document).ready(function() {
   startTime();
+  getLevel();
+  setInterval(
+    function() {
+      getLevel();
+    },
+    1000
+  );
 });
 
 function startTime() {
@@ -47,7 +56,79 @@ function append(tday,week_day,month,month_day,y,h,m,s,ap) {
   $('#hour').html(h+":"+m+":"+s+ap);
 }
 
+function updateBuilding() {
+  if ($level == 0) {
+    $('#level_container').html("<div class='col-xs-3 bar_label'>Nível Crítico</div>"+
+    "<div class='col-xs-2 bar' id='level'></div>"+
+    "<div class='col-xs-2 bar' id='level'></div>"+
+    "<div class='col-xs-2 bar' id='level'></div>");
 
+    $('.water_house').attr('id', 'empty');
+  }
+  else if ($level == 1) {
+    $('#level_container').html("<div class='col-xs-3 bar_label'>Nível Baixo</div>"+
+    "<div class='col-xs-2 bar' id='low_level'></div>"+
+    "<div class='col-xs-2 bar' id='level'></div>"+
+    "<div class='col-xs-2 bar' id='level'></div>");
+
+    $('.water_house').attr('id', 'low');
+  }
+  else if ($level == 2) {
+    $('#level_container').html("<div class='col-xs-3 bar_label'>Nível Médio</div>"+
+    "<div class='col-xs-2 bar' id='medium_level'></div>"+
+    "<div class='col-xs-2 bar' id='medium_level'></div>"+
+    "<div class='col-xs-2 bar' id='level'></div>");
+
+    $('.water_house').attr('id', 'medium');
+  }
+  else if ($level == 3) {
+    $('#level_container').html("<div class='col-xs-3 bar_label'>Nível Cheio</div>"+
+    "<div class='col-xs-2 bar' id='high_level'></div>"+
+    "<div class='col-xs-2 bar' id='high_level'></div>"+
+    "<div class='col-xs-2 bar' id='high_level'></div>");
+
+    $('.water_house').attr('id', 'full');
+  }
+}
+
+function updateBox() {
+  if ($level == 0) {
+    $('.water').animate({
+          height: '5%'
+      }, 1000)
+  }
+  if ($level == 1) {
+    $('.water').animate({
+          height: '30%'
+      }, 1000)
+  }
+  else if ($level == 2) {
+    $('.water').animate({
+          height: '65%'
+      }, 1000)
+  }
+  else if ($level == 3) {
+    $('.water').animate({
+          height: '95%'
+      }, 1000)
+  }
+}
+
+function getLevel() {
+  $.ajax({    //create an ajax request to load_page.php
+    type: "GET",
+    url: "/render_current_level",
+    dataType: "html",   //expect html to be returned
+    success: function(response){
+      // alert(response)
+      // $('body').append(response)
+      $level = response;
+
+      updateBuilding();
+      updateBox();
+    }
+  });
+}
 
 
 // # Place all the behaviors and hooks related to the matching controller here.
