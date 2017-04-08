@@ -196,12 +196,12 @@ label {
 	display: flex;
 }
 
-#full {
+.full {
 	background-color: #2585f0;
 	opacity: 0.7;
 }
 
-#full:hover {
+.full:hover {
 	background-color: #0060da;
 	opacity: 0.7;
 	cursor: pointer;
@@ -217,13 +217,13 @@ label {
 	display: inline-block;;
 }
 
-#medium {
+.medium {
 	background-color: #f0ca30;
 	border-color: #BDB76B;
 	opacity: 0.7;
 }
 
-#medium:hover {
+.medium:hover {
 	background-color: #d0b020;
 	opacity: 0.7;
 	cursor: pointer;
@@ -239,12 +239,12 @@ label {
 	display: inline-block;;
 }
 
-#low {
+.low {
 	background-color: #ea2020;
 	opacity: 0.7;
 }
 
-#low:hover {
+.low:hover {
 	background-color: #d00000;
 	opacity: 0.7;
 	cursor: pointer;
@@ -260,14 +260,14 @@ label {
 	display: inline-block;;
 }
 
-#empty {
+.empty {
 	background-color: #fafafa;
 	border-color: #000;
 	border: 1px solid;
 	opacity: 0.7;
 }
 
-#empty:hover {
+.empty:hover {
 	background-color: #dadada;
 	border-color: #000;
 	border: 1px solid;
