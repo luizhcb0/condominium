@@ -3,9 +3,11 @@ $level = null;
 $(document).ready(function() {
   startTime();
   getLevel();
+  //getLevels();
   setInterval(
     function() {
       getLevel();
+      //getLevels();
     },
     1000
   );
@@ -114,6 +116,23 @@ function updateBox() {
   }
 }
 
+function call($element) {
+  //alert($element.className);
+  if ($element.className == 'water_house') {
+    $('.building_canvas').css('display','none');
+    $('.waterBox_canvas').css('display','block');
+    $('.go_back').css('display','block');
+  }
+  else {
+    $('.waterBox_canvas').css('display','none');
+    $('.building_canvas').css('display','block');
+    $('.go_back').css('display','none');
+
+  }
+
+
+}
+
 function getLevel() {
   $.ajax({    //create an ajax request to load_page.php
     type: "GET",
@@ -126,6 +145,18 @@ function getLevel() {
 
       updateBuilding();
       updateBox();
+    }
+  });
+}
+
+function getLevels() {
+  $.ajax({    //create an ajax request to load_page.php
+    type: "GET",
+    url: "/render_all_current_levels",
+    dataType: "json",   //expect html to be returned
+    success: function(response){
+      $level = response;
+      
     }
   });
 }

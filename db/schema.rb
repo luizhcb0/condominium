@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(version: 20170407021300) do
   create_table "boxes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "resolution", null: false
     t.string  "address",    null: false
+    t.integer "position",   null: false
+    t.integer "order",      null: false
   end
 
   create_table "levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
