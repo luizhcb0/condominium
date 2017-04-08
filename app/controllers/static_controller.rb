@@ -8,8 +8,9 @@ class StaticController < ApplicationController
   end
   
   def render_current_level
-    @level = Level.get_current_level
-    render json: @level.level
+    id = Level.get_current_level(params[:box_id])
+    @level = Level.find(id)
+    render json: @level
   end
   
   def render_all_current_levels

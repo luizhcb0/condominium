@@ -16,7 +16,11 @@ box7 = Box.create(resolution: 3, address: "http://192.168.1.22", position: "bott
 box8 = Box.create(resolution: 3, address: "http://192.168.1.22", position: "bottom", order: 4)
 
 
-Level.create(box: box1, level: 3)
-Level.create(box: box1, level: 2)
-Level.create(box: box1, level: 1)
-Level.create(box: box1, level: 3)
+Level.create(box: box1, level: 0)
+Level.create(box: box2, level: 0)
+Level.create(box: box3, level: 0)
+Level.create(box: box4, level: 0)
+Level.create(box: box5, level: 0)
+Level.create(box: box6, level: 0)
+Level.create(box: box7, level: 0)
+Level.create(box: box8, level: 0)
