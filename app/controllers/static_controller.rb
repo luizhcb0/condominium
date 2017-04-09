@@ -1,7 +1,12 @@
 class StaticController < ApplicationController
   
   def index
-    # @time = DateTime.now
+    
+    @hash = Hash.new
+    @box = Level.where(box_id: 1)
+    @box.each do |b|
+      @hash[b.created_at] = b.level
+    end
     @top_boxes = Box.get_top_boxes
     @bottom_boxes = Box.get_bottom_boxes
     @window = 4

@@ -1,65 +1,9 @@
 <div id="graph_display">
   <div class="row">
-    <div class="col-sm-4 subtitles">
-      <div class="row sub">
-        <div class="full_sub"></div>
-        Cheio
-      </div>
-      <div class="row sub">
-        <div class="medium_sub"></div>
-        Nível Médio
-      </div>
-      <div class="row sub">
-        <div class="low_sub"></div>
-        Nível Baixo
-      </div>
-      <div class="row sub">
-        <div class="empty_sub"></div>
-        Vazio
-      </div>
-    </div>
-
-    <div class="col-sm-4">
-      <div class="canvas">
-
-        <div class="waterBox_canvas">
-          <div class="glass">
-            <div class="water"></div>
-          </div>
-        </div>
-
-        <div class="building_canvas">
-
-          <div class="building_top">
-            <% @top_boxes.each do |l| %>
-              <div class="water_house" id="box_<%= l.id %>" onclick="call(this)"></div>
-            <% end %>
-          </div>
-
-          <div class="building">
-            <% for i in 1..@window %>
-              <div class="window"></div>
-            <% end %>
-          </div>
-
-          <div class="building_bottom">
-            <% @bottom_boxes.each do |l| %>
-              <div class="water_house" id="box_<%= l.id %>" onclick="call(this)"></div>
-            <% end %>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-
-    <div class="col-sm-4">
+    <div class="col-sm-12">
       
-      <div class="go_back">
-        <button class="btn btn-primary" type="button" name="button" onclick="call(this)">Voltar</button>
-      </div>
+      <%= line_chart [{name: "Nível", data: @hash}] %>
 
     </div>
   </div>
-
 </div>
