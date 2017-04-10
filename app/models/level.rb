@@ -13,4 +13,17 @@ class Level < ApplicationRecord
     return @levels
   end
   
+  def self.get_all_boxes_levels
+    @levels = Array.new
+    Box.all.each do |box|
+      @levels <<  where(box_id: box.id)
+    end
+    return @levels
+  end
+  
+  def self.get_all_levels(box_id)
+    @levels = where(box_id: box_id)
+    return @levels
+  end
+  
 end

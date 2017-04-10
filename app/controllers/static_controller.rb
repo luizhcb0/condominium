@@ -1,15 +1,11 @@
 class StaticController < ApplicationController
   
   def index
-    
-    @hash = Hash.new
-    @box = Level.where(box_id: 1)
-    @box.each do |b|
-      @hash[b.created_at] = b.level
-    end
+
     @top_boxes = Box.get_top_boxes
     @bottom_boxes = Box.get_bottom_boxes
     @window = 4
+    
   end
   
   def render_current_level
@@ -31,6 +27,5 @@ class StaticController < ApplicationController
   #   @time = DateTime.now
   #   render partial: "date"
   # end
-
   
 end
