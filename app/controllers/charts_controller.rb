@@ -1,20 +1,24 @@
 class ChartsController < ApplicationController
   
   def get_all_boxes_graph
-    @hash = Hash.new
+    @hash = {}
     @array = Array.new
     @levels = Level.get_all_boxes_levels
     
-    @levels.each do |l|
-      l.each do |i|
-        @hash[i.created_at] = i.level
-      end
-      @array << @hash
-      @hash = Hash.new
+    @levels.each do |l| 
+      l.each do |i| 
+        @hash[i.created_at] = i.level 
+      end 
+      @array << @hash 
+      @hash = Hash.new 
     end
     
-    render json: @array.each_with_index.map { |a, index| { name: "Caixa #{index + 1}", data: a } } 
-     
+    render json: @array.each_with_index.map { 
+      |a, index| { 
+        name: "Caixa #{index + 1}", data: a 
+      } 
+    }
+    
   end
   
   def get_box_graph

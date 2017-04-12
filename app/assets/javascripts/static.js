@@ -160,21 +160,6 @@ function getLevels() {
     dataType: "json",   //expect html to be returned
     success: function(response){
       response.forEach(updateBoxes);
-      response.forEach(updateBoxes);
     }
   });
 }
-
-
-// # Place all the behaviors and hooks related to the matching controller here.
-// # All this logic will automatically be available in application.js.
-// # You can use CoffeeScript in this file: http://coffeescript.org/
-// 
-// $(document).on "turbolinks:load", ->
-//   $('.time-container').load('/get_time')
-// 
-//   setInterval ->
-//     $('.time-container').load('/get_time')
-//     1000
-//   
-// return
