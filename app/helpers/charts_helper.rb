@@ -26,14 +26,15 @@ module ChartsHelper
         #     month: '%Y-%m',
         #     year: '%Y'
         # },
-        # range: 6 * 30 * 24 * 3600 * 1000,
         # tickInterval: 24 * 3600 * 1000,
-        range:  1 * 3600 * 1000,
-        startOnTick: true,
-        endOnTick: true,
+        range:  1 * 3600 * 1000, # hour
+        
+        # True for 0 Padding
+        # startOnTick: true,
+        # endOnTick: true,
+        
         # max: 10
         # min: 1491571200000,
-
          
       },
       # rangeSelector: {
