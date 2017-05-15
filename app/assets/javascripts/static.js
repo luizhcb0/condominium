@@ -86,7 +86,6 @@ function tankInfo($element) {
     $tank_id = $element.id.substr($element.id.length - 1);
     $('.building-canvas').css('display','none');
     $('.waterTank-canvas').css('display','block');
-    $('.go-back').css('display','block');
     clearInterval($allTimer);
     $oneTimer = setInterval(
       function() {
@@ -105,7 +104,6 @@ function tankInfo($element) {
     );
     $('.waterTank-canvas').css('display','none');
     $('.building-canvas').css('display','block');
-    $('.go-back').css('display','none');
   }
 }
 

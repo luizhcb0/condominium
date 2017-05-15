@@ -45,10 +45,12 @@ label {
 	padding: 10px;
 	margin-bottom: 10px;
 }
-
-#draw-display, #graph-display {
-	min-height: 400px;
+@media ( min-width: 768px) {
+	#draw-display, #graph-display {
+		min-height: 88vh;
+	}
 }
+
 
 // ******************************************
 
@@ -64,6 +66,9 @@ label {
 
 #hour {
 	font-size: 28px;
+}
+
+#time-display {
 }
 
 // *******************************************
@@ -90,7 +95,7 @@ label {
 		width: 12%;
 		margin-left: 10%;
 		min-height: 3vw;
-		border-radius: 5%;
+		border-radius: 4%;
 		display: -webkit-box;
 	}
 }
@@ -112,6 +117,7 @@ label {
 
 .full {
 	background-color: #2585f0;
+	border: 1px solid #1575e0;
 	opacity: 0.7;
 }
 
@@ -133,7 +139,7 @@ label {
 
 .medium {
 	background-color: #f0ca30;
-	border-color: #BDB76B;
+	border: 1px solid #e0ba20;
 	opacity: 0.7;
 }
 
@@ -155,6 +161,7 @@ label {
 
 .low {
 	background-color: #ea2020;
+	border: 1px solid #da1010;
 	opacity: 0.7;
 }
 
@@ -214,7 +221,7 @@ Water Tank focus
 	.glass {
 		box-shadow: 2px 3px 3px #888;
 	  margin: 30px auto;
-	  height: 25vw;
+	  height: 22vw;
 		width: 100%;
 	  position: relative;
 	  border-style: none solid solid solid;
@@ -255,7 +262,7 @@ Water Tank focus
 }
 }
 
-.waterTank-canvas, .go-back {
+.waterTank-canvas {
 	display: none;
 }
 
