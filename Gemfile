@@ -36,6 +36,9 @@ gem 'bootstrap-sass'
 gem "font-awesome-rails"
 gem 'font-awesome-sass'
 
+gem "chartkick"
+gem 'groupdate'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

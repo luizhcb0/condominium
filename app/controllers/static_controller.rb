@@ -1,10 +1,11 @@
 class StaticController < ApplicationController
   
   def index
-    # @time = DateTime.now
+
     @top_boxes = Box.get_top_boxes
     @bottom_boxes = Box.get_bottom_boxes
     @window = 4
+    
   end
   
   def render_current_level
@@ -26,6 +27,5 @@ class StaticController < ApplicationController
   #   @time = DateTime.now
   #   render partial: "date"
   # end
-
   
 end
