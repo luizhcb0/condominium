@@ -1,9 +1,9 @@
 class ChartsController < ApplicationController
   
-  def get_all_boxes_graph
+  def get_all_tanks_graph
     @hash = {}
     @array = Array.new
-    @levels = Level.get_all_boxes_levels
+    @levels = Level.get_all_tanks_levels
     
     @levels.each do |l| 
       l.each do |i| 
@@ -21,16 +21,16 @@ class ChartsController < ApplicationController
     
   end
   
-  def get_box_graph
-    box_id = params[:id]
+  def get_tank_graph
+    tank_id = params[:id]
     @hash = Hash.new
-    @levels = Level.get_all_levels(box_id)
+    @levels = Level.get_all_levels(tank_id)
     
     @levels.each do |l|
       @hash[l.created_at] = l.level
     end
 
-    render json: [{ name: "Caixa #{box_id}", data: @hash  }]  
+    render json: [{ name: "Caixa #{tank_id}", data: @hash  }]  
 
   end
   

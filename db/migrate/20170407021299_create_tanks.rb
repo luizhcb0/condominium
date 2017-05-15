@@ -1,6 +1,6 @@
-class CreateBoxes < ActiveRecord::Migration[5.0]
+class CreateTanks < ActiveRecord::Migration[5.0]
   def change
-    create_table :boxes do |t|
+    create_table :tanks do |t|
       t.integer :resolution, null: false
       t.string :address, null: false
       t.integer :position, null: false

@@ -18,18 +18,18 @@ namespace :daemon do
 
     Rails.logger.info "Start daemon..."
     
-    @boxes = Box.all
+    @tanks = Tank.all
     @init_time = Time.current
     loop do
       
       @changed = false
-      @boxes.each do |box|
+      @tanks.each do |tank|
         
-        uri = URI(box.address+"/value")
+        uri = URI(tank.address+"/value")
         current_level = Net::HTTP.get(uri)
         @current_level = current_level.to_i
         
-        id = Level.get_current_level(box.id)
+        id = Level.get_current_level(tank.id)
         @last_level = Level.find(id).level
         
         @now_time = Time.current
@@ -43,12 +43,12 @@ namespace :daemon do
         # 600 seconds or get a different value to update
         
         
-        #CRIAR METODO PARA ATUALIZAR O TEMPO POR CADA BOX
+        #CRIAR METODO PARA ATUALIZAR O TEMPO POR CADA RESERVATORIO
         if ((@last_level != @current_level) || (@elapsed_time > 600))
           
-          level = Level.create(box: box, level: current_level)
+          level = Level.create(tank: tank, level: current_level)
           @changed = true
-          log = "New level inserted. Box: #{level.box_id} Level: #{@current_level} At: #{level.created_at}"
+          log = "New level inserted. Tank: #{level.tank_id} Level: #{@current_level} At: #{level.created_at}"
           Rails.logger.info log
         
         end

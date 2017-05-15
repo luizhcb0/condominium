@@ -12,20 +12,20 @@
 
 ActiveRecord::Schema.define(version: 20170407021300) do
 
-  create_table "boxes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "tank_id",    null: false
+    t.integer  "level",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tank_id"], name: "index_levels_on_tank_id", using: :btree
+  end
+
+  create_table "tanks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "resolution", null: false
     t.string  "address",    null: false
     t.integer "position",   null: false
     t.integer "order",      null: false
   end
 
-  create_table "levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "box_id",     null: false
-    t.integer  "level",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["box_id"], name: "index_levels_on_box_id", using: :btree
-  end
-
-  add_foreign_key "levels", "boxes", on_delete: :cascade
+  add_foreign_key "levels", "tanks", on_delete: :cascade
 end
