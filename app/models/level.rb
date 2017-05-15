@@ -1,28 +1,28 @@
 class Level < ApplicationRecord
-  belongs_to :box
+  belongs_to :tank
   
-  def self.get_current_level(box_id)
-    where(box_id: box_id).maximum(:id)
+  def self.get_current_level(tank_id)
+    where(tank_id: tank_id).maximum(:id)
   end
   
   def self.get_all_current_levels
     @levels = Array.new
-    Box.all.each do |box|
-      @levels <<  where(box_id: box.id).maximum(:id)
+    Tank.all.each do |tank|
+      @levels <<  where(tank_id: tank.id).maximum(:id)
     end
     return @levels
   end
   
-  def self.get_all_boxes_levels
+  def self.get_all_tanks_levels
     @levels = Array.new
-    Box.all.each do |box|
-      @levels <<  where(box_id: box.id)
+    Tank.all.each do |tank|
+      @levels <<  where(tank_id: tank.id)
     end
     return @levels
   end
   
-  def self.get_all_levels(box_id)
-    @levels = where(box_id: box_id)
+  def self.get_all_levels(tank_id)
+    @levels = where(tank_id: tank_id)
     return @levels
   end
   

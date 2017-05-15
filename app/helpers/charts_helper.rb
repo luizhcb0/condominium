@@ -1,7 +1,7 @@
 module ChartsHelper
   
-  def get_all_boxes_graph
-    line_chart get_all_boxes_graph_path, height: '100%', library: {
+  def get_all_tanks_graph
+    line_chart get_all_tanks_graph_path, height: '100%', library: {
       title: {text: 'Níveis x Tempo', x: 0},
       yAxis: {
          allowDecimals: false,
@@ -58,8 +58,8 @@ module ChartsHelper
     }
   end
   
-  def get_box_graph(box_id)
-    line_chart get_box_graph_path(id: box_id), height: '100%', library: {
+  def get_tank_graph(tank_id)
+    line_chart get_tank_graph_path(id: tank_id), height: '100%', library: {
       title: {text: 'Nível x Tempo', x: 0},
       yAxis: {
          allowDecimals: false,

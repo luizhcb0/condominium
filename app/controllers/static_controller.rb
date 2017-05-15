@@ -2,14 +2,14 @@ class StaticController < ApplicationController
   
   def index
 
-    @top_boxes = Box.get_top_boxes
-    @bottom_boxes = Box.get_bottom_boxes
+    @top_tanks = Tank.get_top_tanks
+    @bottom_tanks = Tank.get_bottom_tanks
     @window = 4
     
   end
   
   def render_current_level
-    id = Level.get_current_level(params[:box_id])
+    id = Level.get_current_level(params[:tank_id])
     @level = Level.find(id)
     render json: @level
   end
