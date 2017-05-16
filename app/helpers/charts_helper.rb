@@ -2,19 +2,40 @@ module ChartsHelper
   
   def get_all_tanks_graph
     line_chart get_all_tanks_graph_path, height: '100%', library: {
-      title: {text: 'Níveis x Tempo', x: 0},
+      title: {
+        text: 'Níveis x Tempo',
+        x: 0,
+        style: { color: '#fff' }
+      },
+      colors: ['#2f7ed8', '#ff939a', '#8bbc21', '#910000', '#1aadce', 
+   '#492970', '#f28f43', '#77a1e5', '#c42525', '#a6c96a'],
+      chart: {
+        backgroundColor: '#00304f',
+        animation: false
+      },
+      legend: {
+        itemStyle: { color: '#fff' }
+      },
       yAxis: {
          allowDecimals: false,
          title: {
-             text: 'Nível'
+             text: 'Nível',
+             style: { color: '#adf' }
          },
          tickInterval: 1,
          min: 0,
-         max: 3
+         max: 3,
+         labels: {
+           style: { color: '#fff'}
+         }
       },
       xAxis: {
         title: {
-            text: 'Horário'
+            text: 'Horário',
+            style: { color: '#adf' }
+        },
+        labels: {
+          style: { color: '#fff'}
         },
         type: 'datetime',
         # dateTimeLabelFormats: {
@@ -49,8 +70,9 @@ module ChartsHelper
             verticalAlign: 'bottom',
             y: -5
           },
-          href: "http://www.google.com",
-          text: "LCA®"
+          style: { color: '#adf' },
+          href: 'http://www.google.com',
+          text: 'LCA®'
       },
       scrollbar: {
           enabled: true

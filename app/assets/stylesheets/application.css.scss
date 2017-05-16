@@ -26,7 +26,7 @@
 body {
 	text-align: center;
 	/*font-family: "Street-Plain";*/
-	background-color: #E6E6E6;
+	background-color: 	#00223c;
 }
 
 
@@ -37,235 +37,71 @@ label {
 	font-size: 16px;
 }
 
-// *************** Cards style ****************
 
-.card {
-	background-color: #fcfcfc;
-	box-shadow: 1px 0px 2px #999;
-	padding: 10px;
-	margin-bottom: 10px;
-}
-@media ( min-width: 768px) {
-	#draw-display, #graph-display {
-		min-height: 88vh;
-	}
+.navbar-default {
+	background-color: #00122c;
+  border-color: #00223c;
 }
 
-
-// ******************************************
-
-// ********************* Date DIV IDs ****************
-
-#date, #week {
-	color: #247;
+.navbar-default .navbar-nav > li > a,,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #adf;
+	font-weight: bold;
 }
 
-#week-date {
-	font-size: 24px;
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:hover {
+	color: #adf;
+  background-color: #00324c;
 }
 
-#hour {
-	font-size: 28px;
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #adf;
+  background-color: #00223c;
 }
 
-#time-display {
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #337ab7;
+  background-color: #fff;
 }
 
-// *******************************************
-
-
-
-.canvas {
-	padding: 10%;
+.navbar-default .navbar-toggle {
+  border: 1px solid #adf;
 }
 
-@media (max-width: 767px) {
-	.water-tank {
-		width: 12%;
-		box-shadow: 1px 0px 2px #888;
-		margin-left: 10%;
-		min-height: 7vw;
-		border-radius: 5%;
-	}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #00324c;
 }
 
-@media (min-width: 768px) {
-	.water-tank {
-		box-shadow: 1px 0px 2px #888;
-		width: 12%;
-		margin-left: 10%;
-		min-height: 3vw;
-		border-radius: 4%;
-		display: -webkit-box;
-	}
+.navbar-default .navbar-toggle .icon-bar {
+  color: #adf;
+  background-color: #adf;
 }
 
-.building-top {
-	display: flex;
-	border-bottom: 2px solid #ddd;
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  border-color: #00324c;
 }
 
-.water-tank-info {
-		height: 35vh;
+.dropdown-menu {
+  border: 1px solid #1555a0;
 }
 
-.building-bottom {
-	display: flex;
-	border-top: 2px solid #ddd;
+.dropdown-menu > li > a {
+  color: #337ab7;
 }
 
-
-.full {
-	background-color: #2585f0;
-	border: 1px solid #1575e0;
-	opacity: 0.7;
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  color: #fff;
+  background-color: #438ac7;
 }
 
-.full:hover {
-	background-color: #0060da;
-	opacity: 0.7;
-	cursor: pointer;
-}
-
-.full-sub {
-	box-shadow: 1px 0px 2px #888;
-	height: 12px;
-	width: 12px;
-	background-color: #2585f0;
-	opacity: 0.7;
-	border-radius: 50%;
-	display: inline-block;;
-}
-
-.medium {
-	background-color: #f0ca30;
-	border: 1px solid #e0ba20;
-	opacity: 0.7;
-}
-
-.medium:hover {
-	background-color: #d0b020;
-	opacity: 0.7;
-	cursor: pointer;
-}
-
-.medium-sub {
-	box-shadow: 1px 0px 2px #888;
-	height: 12px;
-	width: 12px;
-	background-color: #f0ca30;
-	opacity: 0.7;
-	border-radius: 50%;
-	display: inline-block;;
-}
-
-.low {
-	background-color: #ea2020;
-	border: 1px solid #da1010;
-	opacity: 0.7;
-}
-
-.low:hover {
-	background-color: #d00000;
-	opacity: 0.7;
-	cursor: pointer;
-}
-
-.low-sub {
-	box-shadow: 1px 0px 2px #888;
-	height: 12px;
-	width: 12px;
-	background-color: #ea2020;
-	opacity: 0.7;
-	border-radius: 50%;
-	display: inline-block;;
-}
-
-.empty {
-	background-color: #fafafa;
-	border: 1px solid #889;
-	opacity: 0.7;
-}
-
-.empty:hover {
-	background-color: #dadada;
-	border: 1px solid #889;
-	opacity: 0.7;
-	cursor: pointer;
-}
-
-.empty-sub {
-	box-shadow: 1px 0px 2px #888;
-	height: 12px;
-	width: 12px;
-	background-color: #fafafa;
-	border: 1px solid #889;
-	opacity: 0.7;
-	border-radius: 50%;
-	display: inline-block;;
-}
-
-
-.sub {
-	text-align: left;
-	margin-left: 10px;
-	margin-top: 4px;
-}
-
-
-/**************************************
-Water Tank focus
-***************************************/
-
-@media (min-width: 768px) {
-	.glass {
-		box-shadow: 2px 3px 3px #888;
-	  margin: 30px auto;
-	  height: 22vw;
-		width: 100%;
-	  position: relative;
-	  border-style: none solid solid solid;
-	  border-width: 10px;
-	  border-color: lightgray;
-	  border-radius: 10px;
-	}
-
-	.water {
-	  width: 100%;
-	  height: 0%;
-	  background-color: #107ff5;
-	  position: absolute;
-	  bottom: 0;
-		opacity: 0.5;
-	}
-}
-
-@media (max-width: 767px) {
-.glass {
-	box-shadow: 2px 3px 3px #888;
-    margin: 30px auto;
-    height:50vw;
-    position: relative;
-    border-style: none solid solid solid;
-    border-width: 10px;
-    border-color: lightgray;
-    border-radius: 10px;
-}
-
-.water {
-    width: 100%;
-    height: 0%;
-    background-color: #107ff5;
-    position: absolute;
-    bottom: 0;
-		opacity: 0.4;
-}
-}
-
-.waterTank-canvas {
-	display: none;
-}
-
-.building-canvas {
-	display: block;
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+  color: #337ab7;
+  background-color: #fff;
 }
