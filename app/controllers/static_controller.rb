@@ -17,8 +17,9 @@ class StaticController < ApplicationController
   def render_all_current_levels
     @levels = Array.new
     array = Level.get_all_current_levels
+    # Rails.logger.debug("Array: #{array.inspect}")
     array.each do |level|
-      @levels << Level.find(level) if level.present?
+      @levels << Level.find_by(id: level) if level
     end
     render json: @levels
   end

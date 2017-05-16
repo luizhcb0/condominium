@@ -6,24 +6,24 @@ class Level < ApplicationRecord
   end
   
   def self.get_all_current_levels
-    @levels = Array.new
+    levels = Array.new
     Tank.all.each do |tank|
-      @levels <<  where(tank_id: tank.id).maximum(:id)
+      levels <<  where(tank_id: tank.id).maximum(:id)
     end
-    return @levels
+    return levels
   end
   
   def self.get_all_tanks_levels
-    @levels = Array.new
+    levels = Array.new
     Tank.all.each do |tank|
-      @levels <<  where(tank_id: tank.id)
+      levels <<  where(tank_id: tank.id)
     end
-    return @levels
+    return levels
   end
   
   def self.get_all_levels(tank_id)
-    @levels = where(tank_id: tank_id)
-    return @levels
+    levels = where(tank_id: tank_id)
+    return levels
   end
   
 end
