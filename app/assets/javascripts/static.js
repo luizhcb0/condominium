@@ -1,11 +1,13 @@
-$updateRate = 1000;
+$updateRate = 5000;
 
 $(document).ready(function() {
   startTime();
   getLevels();
+  // chart();
   $allTimer = setInterval(
     function() {
       getLevels();
+      updatechart();
     },
     $updateRate
   );
@@ -108,10 +110,10 @@ function tankInfo($element) {
 }
 
 function getLevel() {
-  $.ajax({    //create an ajax request to load_page.php
+  $.ajax({
     type: "GET",
     url: "/render_current_level/"+$tank_id,
-    dataType: "json",   //expect html to be returned
+    dataType: "json",
     success: function(response){
       updateTank(response.level);
     }
@@ -136,12 +138,38 @@ function updateTanks($level) {
 }
 
 function getLevels() {
-  $.ajax({    //create an ajax request to load_page.php
+  $.ajax({
     type: "GET",
     url: "/render_all_current_levels",
-    dataType: "json",   //expect html to be returned
+    dataType: "json",
     success: function(response){
       response.forEach(updateTanks);
     }
   });
 }
+
+// Creating Chart Mannualy
+function chart() {
+  $.ajax({
+    type: "GET",
+    url: "/get_all_tanks_graph",
+    dataType: "json",
+    success: function(response){
+      $chart = new Chartkick.LineChart("graph-display", response);
+    }
+  });
+}
+
+// Updating Chart
+function updatechart() {
+  $.ajax({
+    type: "GET",
+    url: "/get_all_tanks_graph",
+    dataType: "json",
+    success: function(response){
+      $chart = Chartkick.charts["chart-1"];
+      $chart.updateData(response);
+    }
+  });
+}
+

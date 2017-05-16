@@ -3,6 +3,11 @@ module ChartsHelper
   def get_all_tanks_graph
     line_chart get_all_tanks_graph_path, height: '100%', library: {
       title: {text: 'Níveis x Tempo', x: 0},
+      plotOptions: {
+        series: {
+            animation: false
+        }
+      },
       yAxis: {
          allowDecimals: false,
          title: {
