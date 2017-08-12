@@ -44,7 +44,7 @@ namespace :daemon do
         
         
         #CRIAR METODO PARA ATUALIZAR O TEMPO POR CADA RESERVATORIO
-        if ((last_level != current_level) || (elapsed_time > 600))
+        if ((last_level != current_level) || (elapsed_time > 600)) #10 minutes
           
           level = Level.create(tank: tank, level: current_level)
           changed = true

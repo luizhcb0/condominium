@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20170407021300) do
 
-  create_table "levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "levels", force: :cascade do |t|
     t.integer  "tank_id",    null: false
     t.integer  "level",      null: false
     t.datetime "created_at", null: false
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170407021300) do
     t.index ["tank_id"], name: "index_levels_on_tank_id", using: :btree
   end
 
-  create_table "tanks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "tanks", force: :cascade do |t|
     t.integer "resolution", null: false
     t.string  "address",    null: false
     t.integer "position",   null: false
